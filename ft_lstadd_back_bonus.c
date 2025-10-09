@@ -25,18 +25,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	ptr->next = new;
 }
 
-// #include <stdlib.h>
 // #include <stdio.h>
 // int main(void)
 // {
-// 	t_list *list = malloc(sizeof(t_list *));
+// 	t_list *list = ft_lstnew("lorem");
 // 	if (!list)
 // 		return (0);
-// 	t_list *elem = malloc(sizeof(t_list *));
+// 	t_list *elem = ft_lstnew("ipsum");
 // 	if (!elem)
 // 		return (0);
-// 	elem->content = "lorem";
-// 	elem->next = NULL;
 // 	printf("%p\n", list->next);
 // 	ft_lstadd_back(&list, elem);
 // 	printf("%p\n", list->next);
