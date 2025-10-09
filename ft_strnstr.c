@@ -12,10 +12,6 @@
 
 #include "libft.h"
 
-/** 
- * @var counters[0] iterates trough the characters of @param str
- * @var counters[1] iterates the matching characters
-*/
 char	*ft_strnstr(char *big, char *litle, size_t len)
 {
 	size_t	i;
