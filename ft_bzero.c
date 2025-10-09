@@ -10,20 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*ptr;
-	size_t	i;
+	unsigned char	*ptr;
 
-	i = 0;
-	ptr = (char *)s;
-	while (i < n)
-	{
-		ptr[i] = '\0';
-		++i;
-	}
+	ptr = (unsigned char *)s;
+	while (n--)
+		*ptr++ = '\0';
 }
 
 // #include <strings.h>
