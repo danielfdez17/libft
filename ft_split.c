@@ -31,6 +31,8 @@ static int	ft_count_words(char const *s, char c)
 		}
 		s++;
 	}
+	if (letters != 0)
+		words++;
 	return (words);
 }
 
