@@ -6,7 +6,7 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 07:46:05 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/07 11:01:59 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/10/10 07:58:58 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,53 +108,73 @@ char	**free_result(char **result, size_t w_counter)
 	return (NULL);
 }
 
-void	ft_init_counters(unsigned int* i, size_t* w_c, size_t* l_c)
+void	ft_init_counters(unsigned int *i, size_t *w_l_counters)
 {
 	*i = 0;
-	*w_c = 0;
-	*l_c = 0;
+	w_l_counters[0] = 0;
+	w_l_counters[1] = 0;
 }
 
+char **ft_inside_loop(const char *s, char **result, unsigned int i, size_t *w_l_counters)
+{
+	result[w_l_counters[0]] = ft_substr(s, i - w_l_counters[1], w_l_counters[1]);
+	if (!result[w_l_counters[0]])
+		return (free_result(result, w_l_counters[0]));
+	++w_l_counters[0];
+	w_l_counters[1] = 0;
+	return (result);
+}
+
+#include <stdio.h>
+/* 
+ * @var w_l_counters[0] stores nº of words of @param s
+ * @var w_l_counters[1] stores nº of letter of every words of @param s
+*/
 char	**ft_split(char const *s, char c)
 {
 	char			**result;
-	unsigned int 	i;
-	size_t			w_counter;
-	size_t			l_counter;
+	unsigned int	i;
+	size_t			w_l_counters[2];
 
-	ft_init_counters(&i, &w_counter, &l_counter);
+	ft_init_counters(&i, w_l_counters);
 	result = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!result)
 		return (NULL);
 	while (s[i])
 	{
 		if ((unsigned char) s[i] != (unsigned char) c)
-			++l_counter;
+			++w_l_counters[1];
 		else
 		{
-			result[w_counter] = ft_substr(s, i, l_counter);
-			if (!result[w_counter])
-				return (free_result(result, w_counter));
-			++w_counter;
-			l_counter = 0;
+			if (!ft_inside_loop(s, result, i, w_l_counters))
+				return (NULL);
+			// result[w_l_counters[0]] = ft_substr(s, i - w_l_counters[1], w_l_counters[1]);
+			// if (!result[w_l_counters[0]])
+			// 	return (free_result(result, w_l_counters[0]));
+			// ++w_l_counters[0];
+			// w_l_counters[1] = 0;
 		}
 		++i;
 	}
-	result[w_counter] = NULL;
+	if (!ft_inside_loop(s, result, i, w_l_counters))
+		return (NULL);
+	// result[w_l_counters[0]] = ft_substr(s, i - w_l_counters[1], w_l_counters[1]);
+	// if (!result[w_l_counters[0]])
+	// 	return (free_result(result, w_l_counters[0]));
+	result[w_l_counters[0]] = NULL;
 	return (result);
 }
 
-
-// #include <stdio.h>
-// int main(void)
-// {
-// 	char const *s = "hola adios adios hola";
-// 	char c = 'a';
-// 	char **result = ft_split(s, c);
-// 	int i = 0;
-// 	while (result[i]) {
-// 		printf("%s|\n", result[i]);
-// 		++i;
-// 	}
-// 	return (0);
-// }
+#include <stdio.h>
+int main(void)
+{
+	printf("count_words: %d\n", ft_count_words("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' '));
+	char **result = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
+	int i = 0;
+	while (result[i]) {
+		printf("%s|\n", result[i]);
+		++i;
+	}
+	return (0);
+}
+// ccw ft_split.c ft_substr.c ft_strdup.c ft_strlen.c -o a.out && ./a.out
