@@ -6,11 +6,11 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 07:45:53 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/07 10:56:08 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/10/10 07:34:35 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static int	ft_is_in_set(char c, char const *set)
 {

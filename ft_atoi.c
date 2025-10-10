@@ -6,7 +6,7 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 07:45:48 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/06 11:23:52 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/10/10 07:33:52 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
 // 	return (ft_get_result(counters[0], counters[2]));
 // }
 
-static int isspace(const char *s, size_t i)
+static int	isspace(const char *s, size_t i)
 {
 	if (s[i] == ' ' || (s[i] >= '\t' && s[i] <= '\r'))
 		return (1);
