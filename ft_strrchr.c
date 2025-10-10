@@ -6,7 +6,7 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 07:45:54 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/06 10:54:37 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/10/10 08:32:16 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strrchr(const char *s, int c)
 
 	size = ft_strlen(s);
 	i = size;
+	if (c > 255)
+		c %= 256;
 	while (i--)
 		if (s[i] == (char)c)
 			return ((char *)(s + i));
