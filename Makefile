@@ -6,7 +6,7 @@
 #    By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/03 07:42:17 by danfern3          #+#    #+#              #
-#    Updated: 2025/10/06 13:24:47 by danfern3         ###   ########.fr        #
+#    Updated: 2025/10/10 08:59:34 by danfern3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -147,7 +147,7 @@ $(NAME): $(OBJS) $(INCS)
 	$(AR) $(NAME) $(OBJS)
 
 # Compiles the bonus exercises
-bonus: $(BONUS_OBJS) $(INCS)
+bonus: all $(BONUS_OBJS) $(INCS)
 	$(AR) $(NAME) $(BONUS_OBJS)
 
 # Removes the object files
