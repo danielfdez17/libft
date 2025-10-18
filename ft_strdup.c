@@ -29,3 +29,18 @@ char	*ft_strdup(const char *s)
 	dup[i] = '\0';
 	return (dup);
 }
+
+// TODO: test ft_memmove version
+// char	*ft_strdup(const char *s)
+// {
+// 	size_t	i;
+// 	size_t	len;
+// 	char	*dup;
+
+// 	len = ft_strlen(s);
+// 	dup = malloc(sizeof(char) * (len + 1));
+// 	if (!dup)
+// 		return (NULL);
+// 	i = 0;
+// 	return (ft_memmove(dup, s, len + 1));
+// }
