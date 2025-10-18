@@ -14,11 +14,20 @@
 
 static int	ft_get_len(int n)
 {
-	int	i;
+	int		i;
+	long	ln;
 
 	i = 0;
+	ln = n;
 	if (n == 0)
 		return (1);
+	if (n < 0)
+		++i;
+	while (n != 0)
+	{
+		n /= 10;
+		++i;
+	}
 	if (n < 0)
 	{
 		while (n < 0)
@@ -35,6 +44,24 @@ static int	ft_get_len(int n)
 	}
 	return (i);
 }
+
+// Todo: test 
+// static int	get_len(int n)
+// {
+// 	int		i;
+
+// 	if (n == 0)
+// 		return (1);
+// 	i = 0;
+// 	if (n < 0)
+// 		++i;
+// 	while (n != 0)
+// 	{
+// 		n /= 10;
+// 		++i;
+// 	}
+// 	return (i);
+// }
 
 static char	*ft_reverse(char *s)
 {
@@ -104,5 +131,5 @@ char	*ft_itoa(int n)
 // 	}
 // 	return (0);
 // }
-// // ccw ft_itoa.c ft_strdup.c ft_strlen.c -o a.out \
+// ccw ft_itoa.c ft_strdup.c ft_strlen.c -o a.out
 // && ./a.out 0000 123 -123 45123456789876543
