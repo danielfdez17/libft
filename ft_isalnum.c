@@ -12,9 +12,6 @@
 
 #include "libft.h"
 
-// if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
-// 	return (1);
-// return (0);
 int	ft_isalnum(int c)
 {
 	return (ft_isalpha(c) || ft_isdigit(c));
