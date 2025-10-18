@@ -12,57 +12,6 @@
 
 #include "libft.h"
 
-// static int	ft_get_result(int result, int negative_counter)
-// {
-// 	if (negative_counter % 2 == 1)
-// 		return (-result);
-// 	return (result);
-// }
-
-// static int	ft_isspace(int *counters, const char *nptr)
-// {
-// 	if (nptr[counters[1]] == ' ')
-// 		return (1);
-// 	if (nptr[counters[1]] >= '\t' && nptr[counters[1]] <= '\r')
-// 		return (1);
-// 	return (0);
-// }
-
-// /**
-//  * @var counters[0] = result
-//  * @var counters[1] = i
-//  * @var counters[2] = negative_counter
-//  * @var counters[3] = positive_counter
-//  */
-// int	ft_atoi(const char *nptr)
-// {
-// 	int	counters[4];
-
-// 	counters[0] = 0;
-// 	counters[1] = 0;
-// 	counters[2] = 0;
-// 	counters[3] = 0;
-// 	while (ft_isspace(counters, nptr) == 1)
-// 		++counters[1];
-// 	while (nptr[counters[1]] == '+' || nptr[counters[1]] == '-')
-// 	{
-// 		if (nptr[counters[1]] == '+')
-// 			counters[3]++;
-// 		else
-// 			counters[2]++;
-// 		++counters[1];
-// 	}
-// 	while (nptr[counters[1]] >= '0' && nptr[counters[1]] <= '9')
-// 	{
-// 		counters[0] = counters[0] * 10 + (nptr[counters[1]] - '0');
-// 		++counters[1];
-// 	}
-// 	if (counters[2] > 1 || counters[3] > 1 \
-// 		|| (counters[2] >= 1 && counters[3] >= 1))
-// 		return (0);
-// 	return (ft_get_result(counters[0], counters[2]));
-// }
-
 static int	isspace(const char *s, size_t i)
 {
 	if (s[i] == ' ' || (s[i] >= '\t' && s[i] <= '\r'))
@@ -119,6 +68,29 @@ int	ft_atoi(const char *nptr)
 		return (-result);
 	return (result);
 }
+
+// Todo: test
+// int	ft_atoi(const char *nptr)
+// {
+// 	int		result;
+// 	int		negative;
+// 	size_t	i;
+
+// 	result = 0;
+// 	negative = 0;
+// 	i = 0;
+// 	while (nptr[i] == ' ' 
+// 		|| (nptr[i] >= '\t' && nptr[i] <= '\r'))
+// 		++i;
+// 	if (nptr[i] == '-' || nptr[i] == '+')
+// 		if (nptr[i++] == '-')
+// 			++negative;
+// 	while (nptr[i] >= '0' && nptr[i] <= '9')
+// 		result = result + 10 * (nptr[i++] - '0');
+// 	if (negative)
+// 		return (-result);
+// 	return (result);
+// }
 
 // #include <stdio.h>
 // #include <stdlib.h>
