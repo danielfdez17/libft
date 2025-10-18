@@ -72,6 +72,7 @@ static char	**ft_inside_loop(const char *s, char **result, \
  * @var w_l_counters[0] stores nº of words of @param s
  * @var w_l_counters[1] stores nº of letter of every words of @param s
 */
+// TODO: split w_l_counters into two separate variables for clarity
 char	**ft_split(char const *s, char c)
 {
 	char			**result;
