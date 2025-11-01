@@ -12,18 +12,18 @@
 
 #include "ft_printf.h"
 
-int	ft_cases(char const *av, va_list ap)
+int	ft_cases(char const *av, va_list a_list)
 {
 	if (*av == 'c')
-		return (ft_put_char(va_arg(ap, int)));
+		return (ft_put_char(va_arg(a_list, int)));
 	if (*av == 's')
-		return (ft_put_str(va_arg(ap, char *)));
+		return (ft_put_str(va_arg(a_list, char *)));
 	if (*av == 'p' || *av == 'x' || *av == 'X')
-		return (ft_put_hex(va_arg(ap, unsigned long), *av));
+		return (ft_put_hex(va_arg(a_list, unsigned long), *av));
 	if (*av == 'd' || *av == 'i')
-		return (ft_put_int(va_arg(ap, int)));
+		return (ft_put_int(va_arg(a_list, int)));
 	if (*av == 'u')
-		return (ft_put_uint(va_arg(ap, unsigned int)));
+		return (ft_put_uint(va_arg(a_list, unsigned int)));
 	if (*av == '%')
 		return (ft_put_char('%'));
 	ft_put_char('%');
@@ -32,20 +32,20 @@ int	ft_cases(char const *av, va_list ap)
 
 int	ft_printf(char const *av, ...)
 {
-	va_list	ap;
+	va_list	a_list;
 	int		ret;
 	int		tmp;
 
 	ret = 0;
 	if (!av)
 		return (-1);
-	va_start(ap, av);
+	va_start(a_list, av);
 	while (*av)
 	{
 		if (*av == '%')
 		{
 			av++;
-			tmp = ft_cases(av, ap);
+			tmp = ft_cases(av, a_list);
 			if (tmp == -1)
 			{
 				av--;
@@ -57,6 +57,6 @@ int	ft_printf(char const *av, ...)
 			ret += ft_put_char(*av);
 		av++;
 	}
-	va_end(ap);
+	va_end(a_list);
 	return (ret);
 }

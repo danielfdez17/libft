@@ -21,8 +21,7 @@ int	ft_put_int(int n)
 	printed = 0;
 	if (nb < 0)
 	{
-		ft_put_char('-');
-		++printed;
+		printed += ft_put_char('-');
 		nb = -nb;
 	}
 	if (nb >= 10)

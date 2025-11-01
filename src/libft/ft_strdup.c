@@ -12,35 +12,33 @@
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
-{
-	size_t	i;
-	char	*dup;
-
-	i = 0;
-	dup = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!dup)
-		return (NULL);
-	while (s[i])
-	{
-		dup[i] = s[i];
-		++i;
-	}
-	dup[i] = '\0';
-	return (dup);
-}
-
-// TODO: test ft_memmove version
 // char	*ft_strdup(const char *s)
 // {
 // 	size_t	i;
-// 	size_t	len;
 // 	char	*dup;
 
-// 	len = ft_strlen(s);
-// 	dup = malloc(sizeof(char) * (len + 1));
+// 	i = 0;
+// 	dup = malloc(sizeof(char) * (ft_strlen(s) + 1));
 // 	if (!dup)
 // 		return (NULL);
-// 	i = 0;
-// 	return (ft_memmove(dup, s, len + 1));
+// 	while (s[i])
+// 	{
+// 		dup[i] = s[i];
+// 		++i;
+// 	}
+// 	dup[i] = '\0';
+// 	return (dup);
 // }
+
+// TODO: test ft_memmove version
+char	*ft_strdup(const char *s)
+{
+	size_t	len;
+	char	*dup;
+
+	len = ft_strlen(s);
+	dup = ft_calloc((len + 1), sizeof(char));
+	if (!dup)
+		return (NULL);
+	return (ft_memmove(dup, s, len + 1));
+}

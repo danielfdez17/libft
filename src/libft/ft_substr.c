@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
 	len = ft_min(len, ft_strlen(s) - start);
-	ptr = malloc(sizeof(char) * (len + 1));
+	ptr = ft_calloc((len + 1), sizeof(char));
 	if (!ptr || !s)
 		return (NULL);
 	i = 0;
@@ -37,18 +37,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		++i;
 		++start;
 	}
-	ptr[i] = '\0';
 	return (ptr);
 }
-
-// #include <stdio.h>
-// int main(void)
-// {
-// 	// printf("%s\n", ft_substr("hola", 0, 18446744073709551615ULL));
-// 	printf("%s\n", ft_substr("lorem ipsum dolor sit amet", 0, 10));
-// 	printf("%s\n", ft_substr("lorem ipsum dolor sit amet", 7, 10));
-// 	printf("%s\n", ft_substr("tripouille", 0, 42000));
-// 	printf("%s\n", ft_substr("0123456789", 9, 10));
-// 	return (0);
-// }
-// // ccw ft_substr.c ft_strlen.c ft_strdup.c -o a.out && ./a.out

@@ -13,9 +13,8 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <unistd.h>
-# include <stdlib.h>
 # include <stdarg.h>
+# include "libft.h"
 
 int	ft_printf(char const *av, ...);
 int	ft_put_char(char c);
@@ -23,6 +22,5 @@ int	ft_put_str(char *s);
 int	ft_put_hex(unsigned long n, char format);
 int	ft_put_int(int n);
 int	ft_put_uint(unsigned int n);
-int	ft_tolower(int c);
 
 #endif

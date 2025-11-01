@@ -11,7 +11,33 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
+
+static char	*ft_strjoin_gnl(char *s1, char *s2)
+{
+	char	*result;
+	size_t	size;
+	size_t	i;
+	size_t	j;
+
+	if (!s1 && !s2)
+		return (NULL);
+	i = 0;
+	j = 0;
+	size = ft_strlen(s1) + ft_strlen(s2) + 1;
+	result = ft_calloc(size, sizeof(char));
+	if (!result)
+		return (NULL);
+	while (s1 && s1[i])
+	{
+		result[i] = s1[i];
+		++i;
+	}
+	while (s2 && s2[j])
+		result[i++] = s2[j++];
+	free(s1);
+	free(s2);
+	return (result);
+}
 
 static char	*clean_buffer(char *buffer)
 {
@@ -28,13 +54,12 @@ static char	*clean_buffer(char *buffer)
 		free(buffer);
 		return (NULL);
 	}
-	new_buffer = malloc(ft_strlen(buffer) - i + 1);
+	new_buffer = ft_calloc(ft_strlen(buffer) - i + 1, sizeof(char));
 	if (!new_buffer)
 		return (NULL);
 	i++;
 	while (buffer[i])
 		new_buffer[j++] = buffer[i++];
-	new_buffer[j] = '\0';
 	free(buffer);
 	return (new_buffer);
 }
@@ -76,7 +101,7 @@ static char	*ft_read_file(int fd, char *static_buff)
 			return (NULL);
 		}
 		buffer[bytes] = '\0';
-		static_buff = ft_strjoin(static_buff, buffer);
+		static_buff = ft_strjoin_gnl(static_buff, buffer);
 		buffer_size *= 2;
 	}
 	return (static_buff);

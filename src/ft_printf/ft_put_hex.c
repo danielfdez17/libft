@@ -23,7 +23,7 @@ char	ft_get_hex_value(int n)
 	return (65 + n - 10);
 }
 
-int	ft_print(unsigned long ptr, int is_upper)
+static int	ft_print(unsigned long ptr, int is_upper)
 {
 	int	printed;
 
