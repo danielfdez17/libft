@@ -6,21 +6,20 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 07:46:13 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/07 11:10:12 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/12/04 15:47:04 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Todo: test 
 static int	ft_get_len(int n)
 {
 	int		i;
-	long	ln;
 
-	i = 0;
-	ln = n;
 	if (n == 0)
 		return (1);
+	i = 0;
 	if (n < 0)
 		++i;
 	while (n != 0)
@@ -28,40 +27,8 @@ static int	ft_get_len(int n)
 		n /= 10;
 		++i;
 	}
-	if (n < 0)
-	{
-		while (n < 0)
-		{
-			n /= 10;
-			++i;
-		}
-		return (i + 1);
-	}
-	while (n > 0)
-	{
-		n /= 10;
-		++i;
-	}
 	return (i);
 }
-
-// Todo: test 
-// static int	get_len(int n)
-// {
-// 	int		i;
-
-// 	if (n == 0)
-// 		return (1);
-// 	i = 0;
-// 	if (n < 0)
-// 		++i;
-// 	while (n != 0)
-// 	{
-// 		n /= 10;
-// 		++i;
-// 	}
-// 	return (i);
-// }
 
 static char	*ft_reverse(char *s)
 {
