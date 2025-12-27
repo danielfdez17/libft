@@ -68,7 +68,7 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 # Compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror # -g3 -fsanitize=address
 
 # Removal
 RM = rm -f
