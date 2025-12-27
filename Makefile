@@ -1,14 +1,8 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/03 07:42:17 by danfern3          #+#    #+#              #
-#    Updated: 2025/10/10 08:59:34 by danfern3         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+# Colors
+GREEN = \033[0;32m
+YELLOW = \033[0;33m
+RED = \033[0;31m
+RESET = \033[0m
 
 # Library name
 NAME = libft.a
@@ -33,12 +27,18 @@ SRCS += $(addprefix $(GNL_DIR), $(GNL_SRCS))
 OBJS += $(addprefix $(OBJ_DIR), $(GNL_SRCS:.c=.o))
 
 # Include files
-INCLUDES = -I ./inc/headers/
+# INCS = $(wildcard *.h)
+INCS = libft.h
 
-# Compilation
+# Object files
+OBJS = $(SRCS:.c=.o)
+
+# Bonus object files
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+
+# Compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
-# CFLAGS += -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
 # Removal
 RM = rm -f
@@ -47,38 +47,37 @@ RM = rm -f
 AR = ar -rcs
 
 # Links a .c (and .h if needed) to its .o file
-$(OBJ_DIR)%.o: $(LIBFT_DIR)%.c
-	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-$(OBJ_DIR)%.o: $(FT_PRINTF_DIR)%.c
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-$(OBJ_DIR)%.o: $(GNL_DIR)%.c
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@ -I INCS
 
 # Compiles the whole program/library
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(INCS)
 	@$(AR) $(NAME) $(OBJS)
-	@echo "Compiling $(NAME)"
+	@echo "$(GREEN)[OK] $(NAME)$(RESET)"
+
+# Compiles the bonus exercises
+bonus: all $(BONUS_OBJS) $(INCS)
+	@$(AR) $(NAME) $(BONUS_OBJS)
+	@echo "$(GREEN)[OK] $(NAME) bonus$(RESET)"
 
 # Removes the object files
 clean:
 	@$(RM) $(OBJS) $(BONUS_OBJS)
-	@echo "Removing .o files"
+	@echo "$(GREEN)[OK] $(RED)Removing object files $(RESET)"
+
 # Removes both object and executable files
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "Removing $(NAME)"
+	@echo "$(GREEN)[OK] $(RED)Removing executable $(RESET)"
 
 # Rebuilds the program/library
 re: fclean all
+	@echo "$(GREEN)[OK] $(YELLOW)Rebuilding $(NAME)$(RESET)"
 
-# Executes norminette for every file
-# norminette:
-# 	echo Executing norminette for every file
-# 	$(NORMINETTE) $(NCFLAGS) $(NHFLAGS) $(SRCS) $(HEADERS) $(BONUS_SRCS)
+# Rebuilds the bonus program/library
+rebonus: fclean bonus
+	@echo "$(GREEN)[OK] $(YELLOW)Rebuilding $(NAME) bonus$(RESET)"
 
-# .PHONY: all clean fclean re rebonus bonus
+.PHONY: all clean fclean re rebonus bonus
