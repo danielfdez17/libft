@@ -78,7 +78,7 @@ AR = ar -rcs
 
 # Links a .c (and .h if needed) to its .o file
 %.o: %.c
-	@$(CC) -c $< -o $@ -I INCS
+	@$(CC) $(CFLAGS) -c $< -o $@ -I INCS
 
 # Compiles the whole program/library
 all: $(NAME)
