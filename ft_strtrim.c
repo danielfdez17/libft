@@ -43,7 +43,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 // int main(void)
 // {
 // 	char *result;
-// 	printf("%s|\n---\n", \
+// 	printf("%s|\n---\n", 
 // (	result = ft_strtrim("lorem \n ipsum \t dolor \n sit \t amet", " ")));
 // 	printf("%s|\n---\n", ft_strtrim("lorem ipsum dolor sit amet", "te"));
 // 	printf("%s|\n---\n", ft_strtrim(" lorem ipsum dolor sit amet", "l "));
@@ -57,7 +57,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 // 	printf("%s|\n---\n", ft_strtrim("", "cdef"));
 // 	printf("%s|\n---\n", ft_strtrim(" . abcd", " "));
 // 	printf("%s|\n---\n", ft_strtrim("ab cd  f    ", " "));
-// 	printf("%s|\n---\n", \
+// 	printf("%s|\n---\n", 
 // ft_strtrim("xxxz  test with x and z and x .  zx  xx z", "z x"));
 // 	printf("%s|\n---\n", ft_strtrim("   abxfg  ", "x"));
 // 	printf("%s|\n---\n", ft_strtrim(".teste, bla ,.,.", ",."));

@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-static int	isspace(const char *s, size_t i)
+static int	ft_isspace(const char *s, size_t i)
 {
 	if (s[i] == ' ' || (s[i] >= '\t' && s[i] <= '\r'))
 		return (1);
 	return (0);
 }
 
-static int	issign(const char *s, size_t i, int *p_counter, int *n_counter)
+static int	ft_issign(const char *s, size_t i, int *p_counter, int *n_counter)
 {
 	if (s[i] == '-')
 	{
@@ -55,9 +55,9 @@ int	ft_atoi(const char *nptr)
 	p_counter = 0;
 	n_counter = 0;
 	i = 0;
-	while (isspace(nptr, i))
+	while (ft_isspace(nptr, i))
 		++i;
-	while (issign(nptr, i, &p_counter, &n_counter))
+	while (ft_issign(nptr, i, &p_counter, &n_counter))
 		++i;
 	if (n_counter > 1 || p_counter > 1 \
 		|| (n_counter >= 1 && p_counter >= 1))
