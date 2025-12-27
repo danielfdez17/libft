@@ -1,14 +1,8 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/03 07:42:17 by danfern3          #+#    #+#              #
-#    Updated: 2025/10/10 08:59:34 by danfern3         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+# Colors
+GREEN = \033[0;32m
+YELLOW = \033[0;33m
+RED = \033[0;31m
+RESET = \033[0m
 
 # Library name
 NAME = libft.a
@@ -67,59 +61,14 @@ BONUS_SRCS = ft_lstadd_back_bonus.c\
 INCS = libft.h
 
 # Object files
-# OBJS = $(SRCS:.c=.o)
-OBJS = ft_atoi.o\
-		ft_bzero.o\
-		ft_calloc.o\
-		ft_isalnum.o\
-		ft_isalpha.o\
-		ft_isascii.o\
-		ft_isdigit.o\
-		ft_isprint.o\
-		ft_itoa.o\
-		ft_memchr.o\
-		ft_memcmp.o\
-		ft_memcpy.o\
-		ft_memmove.o\
-		ft_memset.o\
-		ft_putchar_fd.o\
-		ft_putendl_fd.o\
-		ft_putnbr_fd.o\
-		ft_putstr_fd.o\
-		ft_split.o\
-		ft_strchr.o\
-		ft_strdup.o\
-		ft_striteri.o\
-		ft_strjoin.o\
-		ft_strlcat.o\
-		ft_strlcpy.o\
-		ft_strlen.o\
-		ft_strmapi.o\
-		ft_strncmp.o\
-		ft_strnstr.o\
-		ft_strrchr.o\
-		ft_strtrim.o\
-		ft_substr.o\
-		ft_tolower.o\
-		ft_toupper.o
+OBJS = $(SRCS:.c=.o)
 
 # Bonus object files
-# BONUS_OBJS = $(BONUS_SRCS:.c=.o)
-BONUS_OBJS = ft_lstadd_back_bonus.o\
-		ft_lstadd_front_bonus.o\
-		ft_lstclear_bonus.o\
-		ft_lstdelone_bonus.o\
-		ft_lstiter_bonus.o\
-		ft_lstlast_bonus.o\
-		ft_lstmap_bonus.o\
-		ft_lstnew_bonus.o\
-		ft_lstsize_bonus.o
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 # Compiler and flags
-CCW = cc -Wall -Wextra -Werror
-
-# Memory flags for leaks detection
-# SANITIZE = -fsanitize=address -g
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
 # Removal
 RM = rm -f
@@ -127,46 +76,38 @@ RM = rm -f
 # Archiver
 AR = ar -rcs
 
-# Norminette
-NORMINETTE = norminette
-
-# Norminette for c files
-NCFLAGS = -R CheckForbiddenSourceHeader
-
-# Norminette for h files
-NHFLAGS = -R CheckDefine
-
 # Links a .c (and .h if needed) to its .o file
 %.o: %.c
-	$(CCW) -c $< -o $@ -I INCS
+	@$(CC) -c $< -o $@ -I INCS
 
 # Compiles the whole program/library
 all: $(NAME)
 
 $(NAME): $(OBJS) $(INCS)
-	$(AR) $(NAME) $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
+	@echo "$(GREEN)[OK] $(NAME)$(RESET)"
 
 # Compiles the bonus exercises
 bonus: all $(BONUS_OBJS) $(INCS)
-	$(AR) $(NAME) $(BONUS_OBJS)
+	@$(AR) $(NAME) $(BONUS_OBJS)
+	@echo "$(GREEN)[OK] $(NAME) bonus$(RESET)"
 
 # Removes the object files
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	@$(RM) $(OBJS) $(BONUS_OBJS)
+	@echo "$(GREEN)[OK] $(RED)Removing object files $(RESET)"
 
 # Removes both object and executable files
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
+	@echo "$(GREEN)[OK] $(RED)Removing executable $(RESET)"
 
 # Rebuilds the program/library
 re: fclean all
+	@echo "$(GREEN)[OK] $(YELLOW)Rebuilding $(NAME)$(RESET)"
 
 # Rebuilds the bonus program/library
 rebonus: fclean bonus
+	@echo "$(GREEN)[OK] $(YELLOW)Rebuilding $(NAME) bonus$(RESET)"
 
-# Executes norminette for every file
-# norminette:
-# 	echo Executing norminette for every file
-# 	$(NORMINETTE) $(NCFLAGS) $(NHFLAGS) $(SRCS) $(HEADERS) $(BONUS_SRCS)
-
-# .PHONY: all clean fclean re rebonus bonus
+.PHONY: all clean fclean re rebonus bonus
