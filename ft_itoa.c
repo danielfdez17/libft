@@ -6,13 +6,12 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 07:46:13 by danfern3          #+#    #+#             */
-/*   Updated: 2025/12/04 15:47:04 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/12/29 07:52:27 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Todo: test 
 static int	ft_get_len(int n)
 {
 	int		i;

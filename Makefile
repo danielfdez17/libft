@@ -90,7 +90,8 @@ SRCS = $(LIBFT_SRCS)
 # INCS = libft.h
 
 # Object files
-OBJS = $(patsubst %.c, $(OBJ_DIR)%.o, $(SRCS))
+# OBJS = $(patsubst %.c, $(OBJ_DIR)%.o, $(SRCS))
+OBJS = $(SRCS:.c=.o)
 
 # # Bonus object files
 # BONUS_OBJS = $(BONUS_SRCS:.c=.o)
@@ -101,7 +102,8 @@ $(NAME): $(OBJS)
 	@echo "$(OK) $(GREEN)$(NAME)$(RESET)"
 
 # Links a .c (and .h if needed) to its .o file
-$(OBJ_DIR)%.o: $(LIBFT_DIR)%.c
+%.o: $(LIBFT_DIR)%.c
+# $(OBJ_DIR)%.o: $(LIBFT_DIR)%.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 # ? Compiles the whole program/library

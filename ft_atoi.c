@@ -6,15 +6,15 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 07:45:48 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/10 07:33:52 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/12/29 08:24:42 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isspace(const char *s, size_t i)
+static int	ft_isspace(char c)
 {
-	if (s[i] == ' ' || (s[i] >= '\t' && s[i] <= '\r'))
+	if (c == ' ' || (c >= '\t' && c <= '\r'))
 		return (1);
 	return (0);
 }
@@ -55,9 +55,9 @@ int	ft_atoi(const char *nptr)
 	p_counter = 0;
 	n_counter = 0;
 	i = 0;
-	while (ft_isspace(nptr, i))
+	while (ft_isspace(nptr[i]))
 		++i;
-	while (ft_issign(nptr, i, &p_counter, &n_counter))
+	if (ft_issign(nptr, i, &p_counter, &n_counter))
 		++i;
 	if (n_counter > 1 || p_counter > 1 \
 		|| (n_counter >= 1 && p_counter >= 1))
@@ -68,29 +68,6 @@ int	ft_atoi(const char *nptr)
 		return (-result);
 	return (result);
 }
-
-// Todo: test
-// int	ft_atoi(const char *nptr)
-// {
-// 	int		result;
-// 	int		negative;
-// 	size_t	i;
-
-// 	result = 0;
-// 	negative = 0;
-// 	i = 0;
-// 	while (nptr[i] == ' ' 
-// 		|| (nptr[i] >= '\t' && nptr[i] <= '\r'))
-// 		++i;
-// 	if (nptr[i] == '-' || nptr[i] == '+')
-// 		if (nptr[i++] == '-')
-// 			++negative;
-// 	while (nptr[i] >= '0' && nptr[i] <= '9')
-// 		result = result + 10 * (nptr[i++] - '0');
-// 	if (negative)
-// 		return (-result);
-// 	return (result);
-// }
 
 // #include <stdio.h>
 // #include <stdlib.h>

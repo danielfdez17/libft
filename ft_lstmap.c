@@ -6,7 +6,7 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 07:46:24 by danfern3          #+#    #+#             */
-/*   Updated: 2025/12/27 13:02:15 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/12/29 08:15:40 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			ft_lstclear(&new_list, del);
 			return (NULL);
 		}
-		if (new_list)
-			ft_lstadd_back(&new_list, new_elem);
-		else
-			new_list = new_elem;
+		ft_lstadd_back(&new_list, new_elem);
 		lst = lst->next;
 	}
 	return (new_list);
