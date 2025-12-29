@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonu.c                                   :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 07:46:23 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/03 12:21:58 by danfern3         ###   ########.fr       */
+/*   Created: 2025/10/03 07:46:29 by danfern3          #+#    #+#             */
+/*   Updated: 2025/12/27 13:02:13 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*result;
+	t_list	*ptr;
+	int		size;
 
-	result = malloc(sizeof(t_list));
-	if (!result)
-		return (NULL);
-	result->content = content;
-	result->next = NULL;
-	return (result);
+	size = 0;
+	ptr = lst;
+	while (ptr != NULL)
+	{
+		ptr = ptr->next;
+		++size;
+	}
+	return (size);
 }

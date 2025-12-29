@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonu.c                                  :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 07:46:24 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/03 12:21:58 by danfern3         ###   ########.fr       */
+/*   Created: 2025/10/03 07:46:26 by danfern3          #+#    #+#             */
+/*   Updated: 2025/12/27 13:02:11 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	t_list	*ptr;
-	t_list	*prev;
-
-	ptr = lst;
-	prev = NULL;
-	while (ptr != NULL)
+	if (lst && del)
 	{
-		prev = ptr;
-		ptr = ptr->next;
+		del(lst->content);
+		free(lst);
+		lst = NULL;
 	}
-	return (prev);
 }

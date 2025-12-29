@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonu.c                                 :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 07:46:27 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/03 12:21:58 by danfern3         ###   ########.fr       */
+/*   Created: 2025/10/03 07:46:23 by danfern3          #+#    #+#             */
+/*   Updated: 2025/12/27 13:02:14 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+t_list	*ft_lstnew(void *content)
 {
-	t_list	*ptr;
-	t_list	*aux;
+	t_list	*result;
 
-	ptr = *lst;
-	while (ptr)
-	{
-		aux = ptr;
-		ptr = ptr->next;
-		ft_lstdelone(aux, del);
-	}
-	*lst = NULL;
+	result = malloc(sizeof(t_list));
+	if (!result)
+		return (NULL);
+	result->content = content;
+	result->next = NULL;
+	return (result);
 }
