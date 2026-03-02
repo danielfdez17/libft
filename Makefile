@@ -130,4 +130,15 @@ norminette:
 	@clear
 	@norminette $(LIBFT_DIR) $(FT_PRINTF_DIR) $(GNL_DIR) | grep Error || echo "$(LIBFT) $(GREEN)Norminette passed!$(RESET)"
 
-.PHONY: obj all clean fclean re norminette
+help:
+	@echo "Usage: make [target]"
+	@echo "Targets:"
+	@echo "  all         - Compiles the whole library"
+	@echo "  obj         - Creates the objects directory if it doesn't exist"
+	@echo "  clean       - Removes the object files"
+	@echo "  fclean      - Removes both object and executable files"
+	@echo "  re          - Rebuilds the library"
+	@echo "  norminette  - Checks the code with Norminette"
+	@echo "  help        - Displays this help message"
+
+.PHONY: obj all clean fclean re norminette help
