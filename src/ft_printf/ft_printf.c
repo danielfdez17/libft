@@ -30,6 +30,15 @@ int	ft_cases(char const *av, va_list a_list)
 	return (-1);
 }
 
+void	ft_advance(char const **av, int *tmp)
+{
+	if (*tmp == -1)
+	{
+		(*av)--;
+		*tmp = 1;
+	}
+}
+
 int	ft_printf(char const *av, ...)
 {
 	va_list	a_list;
@@ -46,11 +55,7 @@ int	ft_printf(char const *av, ...)
 		{
 			av++;
 			tmp = ft_cases(av, a_list);
-			if (tmp == -1)
-			{
-				av--;
-				tmp = 1;
-			}
+			ft_advance(&av, &tmp);
 			ret += tmp;
 		}
 		else
