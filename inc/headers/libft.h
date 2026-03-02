@@ -23,6 +23,7 @@ typedef struct s_list
 }	t_list;
 
 int			ft_atoi(const char *nptr);
+long		ft_atol(const char *nptr);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
 bool		ft_isalnum(int c);

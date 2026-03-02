@@ -12,15 +12,12 @@
 
 #include "libft.h"
 
-bool	ft_isspace(const char *s, size_t i)
-{
-	return (s[i] == ' ' || (s[i] >= '\t' && s[i] <= '\r'));
-}
+bool	ft_isspace(const char *s, size_t i);
 
 // Todo: test
-int	ft_atoi(const char *nptr)
+long	ft_atol(const char *nptr)
 {
-	int		result;
+	long	result;
 	int		negative;
 	size_t	i;
 
