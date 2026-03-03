@@ -13,6 +13,7 @@ LIBFT = $(BLUE)[$(NAME)]$(RESET)
 # * Source files
 LIBFT_DIR = ./src/libft/
 LIBFT_SRCS = 	ft_atoi.c \
+				ft_atol.c \
 				ft_bzero.c \
 				ft_calloc.c \
 				ft_isalnum.c \
@@ -124,7 +125,7 @@ fclean: clean
 
 # ? Rebuilds the program/library
 re: fclean all
-	@echo "$(LIBFT) $(YELLOW)Rebuilt $(NAME)$(RESET)"
+	@echo "$(LIBFT) $(YELLOW)Rebuilt $(RESET)"
 
 norminette:
 	@clear
