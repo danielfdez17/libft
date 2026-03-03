@@ -102,17 +102,32 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
-// #include <stdio.h>
+char	**split(char const *s, char c)
+{
+	char **words;
+	unsigned int i;
+	unsigned int word_index;
+	unsigned int letter_count;
+	int total_words;
+
+	total_words = ft_count_words(s, c);
+	words = ft_calloc(total_words + 1, sizeof(char *));
+	if (!words)
+		return (NULL);
+	
+	ft_printf("Total words: %d\n", total_words);	
+	return (NULL);
+}
+
 // int main(void)
 // {
-// 	printf("count_words: %d\n", ft_count_words("xxxxxxxxhello!", 'x'));
-// 	char **result = ft_split("xxxxxxxxhello!", 'x');
-// 	int i = 0;
-// 	while (result[i]) {
-// 		printf("%s|\n", result[i]);
-// 		++i;
-// 	}
-// 	free_result(result, i + 1);
-// 	return (0);
+	// printf("count_words: %d\n", ft_count_words("           x x x x x x xxhello! ", ' '));
+	// char **result = ft_split("xxxxxxxxhello!", 'x');
+	// int i = 0;
+	// while (result[i]) {
+	// 	ft_printf("%s|\n", result[i]);
+	// 	++i;
+	// }
+	// free_result(result, i + 1);
+	// return (0);
 // }
-// // ccw ft_split.c ft_substr.c ft_strdup.c ft_strlen.c -o a.out && ./a.out
