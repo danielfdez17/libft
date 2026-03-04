@@ -114,14 +114,14 @@ char	**ft_split(char const *s, char c)
 // 	words = ft_calloc(total_words + 1, sizeof(char *));
 // 	if (!words)
 // 		return (NULL);
-	
+
 // 	ft_printf("Total words: %d\n", total_words);	
 // 	return (NULL);
 // }
 
 // int main(void)
 // {
-	// printf("count_words: %d\n", ft_count_words("           x x x x x x xxhello! ", ' '));
+	// printf("count_words: %d\n", ft_count_words("xxxxxxxxhello!", ' '));
 	// char **result = ft_split("xxxxxxxxhello!", 'x');
 	// int i = 0;
 	// while (result[i]) {
