@@ -30,7 +30,7 @@ long	ft_atol(const char *nptr)
 		if (nptr[i++] == '-')
 			++negative;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
-		result = result + 10 * (nptr[i++] - '0');
+		result = result * 10 + (nptr[i++] - '0');
 	if (negative)
 		return (-result);
 	return (result);
