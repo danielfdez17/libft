@@ -70,4 +70,6 @@ void		ft_swap_int(int *a, int *b);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 
+char		**ft_free_split(char **split);
+
 #endif // LIBFT_H

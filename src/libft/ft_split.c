@@ -36,17 +36,17 @@ static int	ft_count_words(char const *s, char c)
 	return (words);
 }
 
-static char	**free_result(char **result, size_t w_counter)
+char	**ft_free_split(char **split)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < w_counter)
+	while (split[i])
 	{
-		free(result[i]);
+		free(split[i]);
 		++i;
 	}
-	free(result);
+	free(split);
 	return (NULL);
 }
 
@@ -63,7 +63,7 @@ static char	**ft_inside_loop(const char *s, char **result,
 	result[w_l_counters[0]]
 		= ft_substr(s, i - w_l_counters[1], w_l_counters[1]);
 	if (!result[w_l_counters[0]])
-		return (free_result(result, w_l_counters[0]));
+		return (ft_free_split(result));
 	++w_l_counters[0];
 	return (result);
 }
