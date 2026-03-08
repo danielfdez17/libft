@@ -12,7 +12,8 @@ LIBFT = $(BLUE)[$(NAME)]$(RESET)
 
 # * Source files
 LIBFT_DIR = ./src/libft/
-LIBFT_SRCS = 	ft_atoi.c \
+LIBFT_SRCS = 	ft_abs.c \
+				ft_atoi.c \
 				ft_atol.c \
 				ft_bzero.c \
 				ft_calloc.c \
