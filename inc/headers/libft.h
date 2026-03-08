@@ -70,6 +70,9 @@ void		ft_swap_int(int *a, int *b);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 
+// * EXTRA FUNCTIONS
+int			ft_abs_int(int n);
 char		**ft_free_split(char **split);
+int			ft_max_int(int a, int b);
 
 #endif // LIBFT_H

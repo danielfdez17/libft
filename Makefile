@@ -31,6 +31,7 @@ LIBFT_SRCS = 	ft_atoi.c \
 				ft_lstmap.c \
 				ft_lstnew.c \
 				ft_lstsize.c \
+				ft_max.c \
 				ft_memchr.c \
 				ft_memcmp.c \
 				ft_memcpy.c \
