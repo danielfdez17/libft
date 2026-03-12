@@ -106,43 +106,48 @@ $(OBJ_DIR)%.o: $(FT_PRINTF_DIR)%.c
 $(OBJ_DIR)%.o: $(GNL_DIR)%.c
 	@$(MYCC) $(MYCFLAGS) $(HEADERS) -c $< -o $@
 
+# ? 📁 Creates the objects directory if it doesn't exist
 obj:
 	@mkdir -p $(OBJ_DIR)
 
-# ? Compiles the whole program/library
+# ? 🔨 Compiles the whole library
 all: obj $(NAME)
 
 $(NAME): $(OBJS)
 	@$(AR) $(NAME) $(OBJS)
 	@echo "$(LIBFT) $(GREEN)Built $(RESET)"
 
-# ? Removes the object files
+# ? 🧹 Removes the object files
 clean:
 	@$(RM) $(OBJS)
 	@echo "$(LIBFT) $(RED)Object files removed $(RESET)"
 
-# ? Removes both object and executable files
+# ? 🗑️ Removes both object and executable files
 fclean: clean
 	@$(RM) $(NAME)
 	@echo "$(LIBFT) $(RED)Removed $(RESET)"
 
-# ? Rebuilds the program/library
+# ? 🔁 Rebuilds the library
 re: fclean all
 	@echo "$(LIBFT) $(YELLOW)Rebuilt $(RESET)"
 
+# ? 📏 Checks the code with Norminette
 norminette:
 	@clear
 	@norminette $(LIBFT_DIR) $(FT_PRINTF_DIR) $(GNL_DIR) | grep Error || echo "$(LIBFT) $(GREEN)Norminette passed!$(RESET)"
 
+# ? ❓ Displays this help message
 help:
-	@echo "Usage: make [target]"
-	@echo "Targets:"
-	@echo "  all         - Compiles the whole library"
-	@echo "  obj         - Creates the objects directory if it doesn't exist"
-	@echo "  clean       - Removes the object files"
-	@echo "  fclean      - Removes both object and executable files"
-	@echo "  re          - Rebuilds the library"
-	@echo "  norminette  - Checks the code with Norminette"
-	@echo "  help        - Displays this help message"
+	@awk '\
+		BEGIN { blue = "\033[0;34m"; green = "\033[0;32m"; reset = "\033[0m"; yellow = "\033[0;33m"; print yellow "Usage: make [target]"; print "Targets:" } \
+		/^# \?/ { desc = substr($$0, 5); next } \
+		/^$$/ { desc = ""; next } \
+		/^[a-zA-Z0-9][a-zA-Z0-9_.-]*:/ { \
+			target = $$1; \
+			sub(/:.*/, "", target); \
+			if (target !~ /^\./) \
+				printf "  " blue "%-12s" reset green "%s" reset "\n", target, desc; \
+			desc = ""; \
+		}' $(firstword $(MAKEFILE_LIST))
 
 .PHONY: obj all clean fclean re norminette help
