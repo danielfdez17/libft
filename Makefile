@@ -81,6 +81,7 @@ SRCS += $(GNL_SRCS)
 
 # * Include files
 HEADERS = -I ./inc/headers
+INCLUDES_DIR = ./inc/
 
 # * Object files
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
@@ -134,7 +135,7 @@ re: fclean all
 # ? 📏 Checks the code with Norminette
 norminette:
 	@clear
-	@norminette $(LIBFT_DIR) $(FT_PRINTF_DIR) $(GNL_DIR) | grep Error || echo "$(LIBFT) $(GREEN)Norminette passed!$(RESET)"
+	@norminette $(INCLUDES_DIR) $(LIBFT_DIR) $(FT_PRINTF_DIR) $(GNL_DIR) | grep Error || echo "$(LIBFT) $(GREEN)Norminette passed!$(RESET)"
 
 # ? ❓ Displays this help message
 help:
