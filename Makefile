@@ -10,6 +10,8 @@ YELLOW = \033[0;33m
 BLUE = \033[0;34m
 LIBFT = $(BLUE)[$(NAME)]$(RESET)
 
+MAKEFLAGS := -j$(shell nproc)
+
 # * Source files
 LIBFT_DIR = ./src/libft/
 LIBFT_SRCS = 	ft_abs.c \
