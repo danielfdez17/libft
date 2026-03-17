@@ -50,7 +50,7 @@ AR = ar -rcs
 NOPRINT += --no-print-directory
 
 # * Source files
-SOURCES_DIR = ./src/
+LIBFT_SOURCES_DIR = ./src/
 LIBFT_SRCS = 		src/libft/ft_abs.c \
 					src/libft/ft_atoi.c \
 					src/libft/ft_atol.c \
@@ -153,7 +153,7 @@ re:
 
 # ? 📏 Checks the code with Norminette
 norminette:
-	$(call RUN_AND_LOG,clear; norminette $(INCLUDES_DIR) $(SOURCES_DIR) | grep Error || echo "$(LIBFT) $(GREEN)Norminette passed!$(RESET)",$(LIBFT) $(BLUE)Norminette checked!$(RESET))
+	$(call RUN_AND_LOG,clear; norminette $(INCLUDES_DIR) $(LIBFT_SOURCES_DIR) | grep Error || echo "$(LIBFT) $(GREEN)Norminette passed!$(RESET)",$(LIBFT) $(BLUE)Norminette checked!$(RESET))
 
 # ? ❓ Displays this help message
 help:
