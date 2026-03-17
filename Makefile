@@ -8,9 +8,23 @@ RED = \033[0;31m
 GREEN = \033[0;32m
 YELLOW = \033[0;33m
 BLUE = \033[0;34m
+CYAN = \033[0;36m
+MAGENTA = \033[0;35m
 LIBFT = $(BLUE)[$(NAME)]$(RESET)
 
-MAKEFLAGS += --no-print-directory
+# * Timer helper
+define RUN_AND_LOG
+	@start_ms=$$(date +%s%3N); \
+	$(1); status=$$?; \
+	end_ms=$$(date +%s%3N); \
+	elapsed_ms=$$((end_ms - start_ms)); \
+	if [ $$status -eq 0 ]; then \
+		printf "%b [%sms]\n" "$(2)" "$$elapsed_ms"; \
+	fi; \
+	exit $$status
+endef
+
+NOPRINT += --no-print-directory
 
 # * Source files
 LIBFT_DIR = ./src/libft/
@@ -110,39 +124,39 @@ $(OBJ_DIR)%.o: $(GNL_DIR)%.c | $(OBJ_DIR)
 	@$(MYCC) $(MYCFLAGS) $(HEADERS) -c $< -o $@
 
 # ? 📁 Creates the objects directory if it doesn't exist
-obj:
+$(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-$(OBJ_DIR): obj
-
 # ? 🔨 Compiles the whole library
-all: obj $(NAME)
+all: $(OBJ_DIR)
+	@build_plan="$$($(MAKE) -s -n $(NAME) $(NOPRINT) 2>&1)"; status=$$?; \
+	if [ $$status -ne 0 ]; then \
+		printf "%s\n" "$$build_plan"; \
+		exit $$status; \
+	elif [ -n "$$build_plan" ]; then \
+		$(MAKE) $(NAME) $(NOPRINT); \
+	else \
+		printf "%b\n" "$(LIBFT) $(CYAN)Everything is up to date$(RESET)"; \
+	fi
 
 $(NAME): $(OBJS)
-	@$(AR) $(NAME) $(OBJS)
-	@echo "$(LIBFT) $(GREEN)Built $(RESET)"
+	$(call RUN_AND_LOG,$(AR) $(NAME) $(OBJS),$(LIBFT) $(GREEN)Built $(RESET))
 
 # ? 🧹 Removes the object files
 clean:
-	@$(RM) $(OBJS)
-	@echo "$(LIBFT) $(RED)Object files removed $(RESET)"
+	$(call RUN_AND_LOG,$(RM) $(OBJS),$(LIBFT) $(RED)Object files removed $(RESET))
 
 # ? 🗑️ Removes both object and executable files
 fclean:
-	@$(MAKE) clean
-	@$(RM) $(NAME)
-	@echo "$(LIBFT) $(RED)Removed $(RESET)"
+	$(call RUN_AND_LOG,$(MAKE) clean $(NOPRINT); $(RM) $(NAME),$(LIBFT) $(RED)Removed $(RESET))
 
 # ? 🔁 Rebuilds the library
 re:
-	@$(MAKE) fclean
-	@$(MAKE) all
-	@echo "$(LIBFT) $(YELLOW)Rebuilt $(RESET)"
+	$(call RUN_AND_LOG,$(MAKE) fclean $(NOPRINT); $(MAKE) all $(NOPRINT),$(LIBFT) $(YELLOW)Rebuilt $(RESET))
 
 # ? 📏 Checks the code with Norminette
 norminette:
-	@clear
-	@norminette $(INCLUDES_DIR) $(LIBFT_DIR) $(FT_PRINTF_DIR) $(GNL_DIR) | grep Error || echo "$(LIBFT) $(GREEN)Norminette passed!$(RESET)"
+	$(call RUN_AND_LOG,clear; norminette $(INCLUDES_DIR) $(LIBFT_DIR) $(FT_PRINTF_DIR) $(GNL_DIR) | grep Error || echo "$(LIBFT) $(GREEN)Norminette passed!$(RESET)",$(LIBFT) $(BLUE)Norminette checked!$(RESET))
 
 # ? ❓ Displays this help message
 help:
