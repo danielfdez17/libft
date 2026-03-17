@@ -10,7 +10,7 @@ YELLOW = \033[0;33m
 BLUE = \033[0;34m
 LIBFT = $(BLUE)[$(NAME)]$(RESET)
 
-MAKEFLAGS := -j$(shell nproc)
+MAKEFLAGS += --no-print-directory
 
 # * Source files
 LIBFT_DIR = ./src/libft/
@@ -100,18 +100,20 @@ AR = ar -rcs
 
 # ! Rules
 # ? Links a .c to its .o file
-$(OBJ_DIR)%.o: $(LIBFT_DIR)%.c
+$(OBJ_DIR)%.o: $(LIBFT_DIR)%.c | $(OBJ_DIR)
 	@$(MYCC) $(MYCFLAGS) $(HEADERS) -c $< -o $@
 
-$(OBJ_DIR)%.o: $(FT_PRINTF_DIR)%.c
+$(OBJ_DIR)%.o: $(FT_PRINTF_DIR)%.c | $(OBJ_DIR)
 	@$(MYCC) $(MYCFLAGS) $(HEADERS) -c $< -o $@
 
-$(OBJ_DIR)%.o: $(GNL_DIR)%.c
+$(OBJ_DIR)%.o: $(GNL_DIR)%.c | $(OBJ_DIR)
 	@$(MYCC) $(MYCFLAGS) $(HEADERS) -c $< -o $@
 
 # ? 📁 Creates the objects directory if it doesn't exist
 obj:
 	@mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR): obj
 
 # ? 🔨 Compiles the whole library
 all: obj $(NAME)
@@ -126,12 +128,15 @@ clean:
 	@echo "$(LIBFT) $(RED)Object files removed $(RESET)"
 
 # ? 🗑️ Removes both object and executable files
-fclean: clean
+fclean:
+	@$(MAKE) clean
 	@$(RM) $(NAME)
 	@echo "$(LIBFT) $(RED)Removed $(RESET)"
 
 # ? 🔁 Rebuilds the library
-re: fclean all
+re:
+	@$(MAKE) fclean
+	@$(MAKE) all
 	@echo "$(LIBFT) $(YELLOW)Rebuilt $(RESET)"
 
 # ? 📏 Checks the code with Norminette
@@ -153,4 +158,6 @@ help:
 			desc = ""; \
 		}' $(firstword $(MAKEFILE_LIST))
 
-.PHONY: obj all clean fclean re norminette help
+.PHONY: all clean fclean re norminette help
+
+.DEFAULT_GOAL := all
