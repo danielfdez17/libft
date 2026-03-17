@@ -24,111 +24,108 @@ define RUN_AND_LOG
 	exit $$status
 endef
 
-NOPRINT += --no-print-directory
-
-# * Source files
-LIBFT_DIR = ./src/libft/
-LIBFT_SRCS = 	ft_abs.c \
-				ft_atoi.c \
-				ft_atol.c \
-				ft_bzero.c \
-				ft_calloc.c \
-				ft_isalnum.c \
-				ft_isalpha.c \
-				ft_isascii.c \
-				ft_isdigit.c \
-				ft_isprint.c \
-				ft_itoa.c \
-				ft_lstadd_back.c \
-				ft_lstadd_front.c \
-				ft_lstclear.c \
-				ft_lstdelone.c \
-				ft_lstiter.c \
-				ft_lstlast.c \
-				ft_lstmap.c \
-				ft_lstnew.c \
-				ft_lstsize.c \
-				ft_max.c \
-				ft_memchr.c \
-				ft_memcmp.c \
-				ft_memcpy.c \
-				ft_memmove.c \
-				ft_memset.c \
-				ft_putchar_fd.c \
-				ft_putendl_fd.c \
-				ft_putnbr_fd.c \
-				ft_putstr_fd.c \
-				ft_split.c \
-				ft_strchr.c \
-				ft_strdup.c \
-				ft_striteri.c \
-				ft_strjoin.c \
-				ft_strlcat.c \
-				ft_strlcpy.c \
-				ft_strlen.c \
-				ft_strmapi.c \
-				ft_strncmp.c \
-				ft_strnstr.c \
-				ft_strrchr.c \
-				ft_strtrim.c \
-				ft_substr.c \
-				ft_swap.c \
-				ft_tolower.c \
-				ft_toupper.c \
-
-
-OBJ_DIR = ./src/obj/
-
-SRCS = $(LIBFT_SRCS)
-
-FT_PRINTF_DIR = ./src/ft_printf/
-FT_PRINTF_SRCS =	ft_printf.c \
-					ft_put_char.c \
-					ft_put_hex.c \
-					ft_put_int.c \
-					ft_put_str.c \
-					ft_put_uint.c
-SRCS += $(FT_PRINTF_SRCS)
-
-GNL_DIR = ./src/gnl/
-GNL_SRCS =	get_next_line.c \
-			get_next_line_utils.c
-SRCS += $(GNL_SRCS)
-
-# * Include files
-HEADERS = -I ./inc/headers
-INCLUDES_DIR = ./inc/
-
-# * Object files
-OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
-
 # * Compiler and flags
 MYCC = cc
-MYCFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+WARNING_FLAGS = -Wall -Wextra -Werror
+DEBUG_FLAGS = -g3 -fsanitize=address
+# MYCFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CPPFLAGS = -I./inc -MMD -MP
+
+BUILD_TYPE ?= release
+
+ifeq ($(BUILD_TYPE),debug)
+	OPT_FLAGS = -g3 -ggdb -O0 # Optimize for debugging, not for speed
+else
+	OPT_FLAGS = -O2 # Optimize for speed, but not at the cost of debuggability
+endif
+
+CFLAGS = $(WARNING_FLAGS) $(OPT_FLAGS)
 
 # * Removal
-RM = rm -f
+RM = rm -rf
 
 # * Archiver
 AR = ar -rcs
 
+NOPRINT += --no-print-directory
+
+# * Source files
+SOURCES_DIR = ./src/
+LIBFT_SRCS = 		src/libft/ft_abs.c \
+					src/libft/ft_atoi.c \
+					src/libft/ft_atol.c \
+					src/libft/ft_bzero.c \
+					src/libft/ft_calloc.c \
+					src/libft/ft_isalnum.c \
+					src/libft/ft_isalpha.c \
+					src/libft/ft_isascii.c \
+					src/libft/ft_isdigit.c \
+					src/libft/ft_isprint.c \
+					src/libft/ft_itoa.c \
+					src/libft/ft_lstadd_back.c \
+					src/libft/ft_lstadd_front.c \
+					src/libft/ft_lstclear.c \
+					src/libft/ft_lstdelone.c \
+					src/libft/ft_lstiter.c \
+					src/libft/ft_lstlast.c \
+					src/libft/ft_lstmap.c \
+					src/libft/ft_lstnew.c \
+					src/libft/ft_lstsize.c \
+					src/libft/ft_max.c \
+					src/libft/ft_memchr.c \
+					src/libft/ft_memcmp.c \
+					src/libft/ft_memcpy.c \
+					src/libft/ft_memmove.c \
+					src/libft/ft_memset.c \
+					src/libft/ft_putchar_fd.c \
+					src/libft/ft_putendl_fd.c \
+					src/libft/ft_putnbr_fd.c \
+					src/libft/ft_putstr_fd.c \
+					src/libft/ft_split.c \
+					src/libft/ft_strchr.c \
+					src/libft/ft_strdup.c \
+					src/libft/ft_striteri.c \
+					src/libft/ft_strjoin.c \
+					src/libft/ft_strlcat.c \
+					src/libft/ft_strlcpy.c \
+					src/libft/ft_strlen.c \
+					src/libft/ft_strmapi.c \
+					src/libft/ft_strncmp.c \
+					src/libft/ft_strnstr.c \
+					src/libft/ft_strrchr.c \
+					src/libft/ft_strtrim.c \
+					src/libft/ft_substr.c \
+					src/libft/ft_swap.c \
+					src/libft/ft_tolower.c \
+					src/libft/ft_toupper.c
+FT_PRINTF_SRCS =	src/ft_printf/ft_printf.c \
+					src/ft_printf/ft_put_char.c \
+					src/ft_printf/ft_put_hex.c \
+					src/ft_printf/ft_put_int.c \
+					src/ft_printf/ft_put_str.c \
+					src/ft_printf/ft_put_uint.c
+GNL_SRCS =			src/gnl/get_next_line.c \
+					src/gnl/get_next_line_utils.c
+
+SRCS = $(LIBFT_SRCS) \
+	$(FT_PRINTF_SRCS) \
+	$(GNL_SRCS)
+
+# * Include files
+INCLUDES_DIR = ./inc/
+
+# * Object files
+OBJS = $(SRCS:.c=.o)
+DEPS = $(SRCS:.c=.d)
+-include $(DEPS)
+
 # ! Rules
 # ? Links a .c to its .o file
-$(OBJ_DIR)%.o: $(LIBFT_DIR)%.c | $(OBJ_DIR)
-	@$(MYCC) $(MYCFLAGS) $(HEADERS) -c $< -o $@
-
-$(OBJ_DIR)%.o: $(FT_PRINTF_DIR)%.c | $(OBJ_DIR)
-	@$(MYCC) $(MYCFLAGS) $(HEADERS) -c $< -o $@
-
-$(OBJ_DIR)%.o: $(GNL_DIR)%.c | $(OBJ_DIR)
-	@$(MYCC) $(MYCFLAGS) $(HEADERS) -c $< -o $@
-
-# ? 📁 Creates the objects directory if it doesn't exist
-$(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
+$(OBJS): %.o: %.c
+	@$(MYCC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 # ? 🔨 Compiles the whole library
-all: $(OBJ_DIR)
+all:
 	@build_plan="$$($(MAKE) -s -n $(NAME) $(NOPRINT) 2>&1)"; status=$$?; \
 	if [ $$status -ne 0 ]; then \
 		printf "%s\n" "$$build_plan"; \
@@ -144,7 +141,7 @@ $(NAME): $(OBJS)
 
 # ? 🧹 Removes the object files
 clean:
-	$(call RUN_AND_LOG,$(RM) $(OBJS),$(LIBFT) $(RED)Object files removed $(RESET))
+	$(call RUN_AND_LOG,$(RM) $(OBJS) $(DEPS),$(LIBFT) $(RED)Object files removed $(RESET))
 
 # ? 🗑️ Removes both object and executable files
 fclean:
@@ -156,7 +153,7 @@ re:
 
 # ? 📏 Checks the code with Norminette
 norminette:
-	$(call RUN_AND_LOG,clear; norminette $(INCLUDES_DIR) $(LIBFT_DIR) $(FT_PRINTF_DIR) $(GNL_DIR) | grep Error || echo "$(LIBFT) $(GREEN)Norminette passed!$(RESET)",$(LIBFT) $(BLUE)Norminette checked!$(RESET))
+	$(call RUN_AND_LOG,clear; norminette $(INCLUDES_DIR) $(SOURCES_DIR) | grep Error || echo "$(LIBFT) $(GREEN)Norminette passed!$(RESET)",$(LIBFT) $(BLUE)Norminette checked!$(RESET))
 
 # ? ❓ Displays this help message
 help:
