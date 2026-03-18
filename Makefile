@@ -115,13 +115,16 @@ SRCS = $(LIBFT_SRCS) \
 INCLUDES_DIR = ./inc/
 
 # * Object files
-OBJS = $(SRCS:.c=.o)
-DEPS = $(SRCS:.c=.d)
+OBJ_DIR = obj
+OBJS = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
+DEPS = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.d))
 -include $(DEPS)
 
 # ! Rules
 # ? Links a .c to its .o file
-$(OBJS): %.o: %.c
+
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
 	@$(MYCC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 # ? 🔨 Compiles the whole library
@@ -141,7 +144,7 @@ $(NAME): $(OBJS)
 
 # ? 🧹 Removes the object files
 clean:
-	$(call RUN_AND_LOG,$(RM) $(OBJS) $(DEPS),$(LIBFT) $(RED)Object files removed $(RESET))
+	$(call RUN_AND_LOG,$(RM) $(OBJ_DIR),$(LIBFT) $(RED)Object files removed $(RESET))
 
 # ? 🗑️ Removes both object and executable files
 fclean:
