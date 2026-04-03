@@ -74,5 +74,6 @@ int			ft_toupper(int c);
 int			ft_abs_int(int n);
 char		**ft_free_split(char **split);
 int			ft_max_int(int a, int b);
+bool		ft_isspace(char c);
 
 #endif // LIBFT_H

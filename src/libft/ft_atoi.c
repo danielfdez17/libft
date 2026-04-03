@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-bool	ft_isspace(const char *s, size_t i)
+bool	ft_isspace(char c)
 {
-	return (s[i] == ' ' || (s[i] >= '\t' && s[i] <= '\r'));
+	return (c == ' ' || (c >= '\t' && c <= '\r'));
 }
 
 // Todo: test
@@ -27,7 +27,7 @@ int	ft_atoi(const char *nptr)
 	result = 0;
 	negative = 0;
 	i = 0;
-	while (ft_isspace(nptr, i))
+	while (ft_isspace(nptr[i]))
 		++i;
 	if (nptr[i] == '-' || nptr[i] == '+')
 		if (nptr[i++] == '-')

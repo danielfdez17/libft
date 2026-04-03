@@ -1,0 +1,277 @@
+[
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_abs.c -o obj/src/libft/ft_abs.o",
+		"file": "src/libft/ft_abs.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_atoi.c -o obj/src/libft/ft_atoi.o",
+		"file": "src/libft/ft_atoi.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_atol.c -o obj/src/libft/ft_atol.o",
+		"file": "src/libft/ft_atol.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_bzero.c -o obj/src/libft/ft_bzero.o",
+		"file": "src/libft/ft_bzero.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_calloc.c -o obj/src/libft/ft_calloc.o",
+		"file": "src/libft/ft_calloc.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_isalnum.c -o obj/src/libft/ft_isalnum.o",
+		"file": "src/libft/ft_isalnum.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_isalpha.c -o obj/src/libft/ft_isalpha.o",
+		"file": "src/libft/ft_isalpha.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_isascii.c -o obj/src/libft/ft_isascii.o",
+		"file": "src/libft/ft_isascii.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_isdigit.c -o obj/src/libft/ft_isdigit.o",
+		"file": "src/libft/ft_isdigit.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_isprint.c -o obj/src/libft/ft_isprint.o",
+		"file": "src/libft/ft_isprint.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_itoa.c -o obj/src/libft/ft_itoa.o",
+		"file": "src/libft/ft_itoa.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_lstadd_back.c -o obj/src/libft/ft_lstadd_back.o",
+		"file": "src/libft/ft_lstadd_back.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_lstadd_front.c -o obj/src/libft/ft_lstadd_front.o",
+		"file": "src/libft/ft_lstadd_front.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_lstclear.c -o obj/src/libft/ft_lstclear.o",
+		"file": "src/libft/ft_lstclear.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_lstdelone.c -o obj/src/libft/ft_lstdelone.o",
+		"file": "src/libft/ft_lstdelone.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_lstiter.c -o obj/src/libft/ft_lstiter.o",
+		"file": "src/libft/ft_lstiter.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_lstlast.c -o obj/src/libft/ft_lstlast.o",
+		"file": "src/libft/ft_lstlast.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_lstmap.c -o obj/src/libft/ft_lstmap.o",
+		"file": "src/libft/ft_lstmap.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_lstnew.c -o obj/src/libft/ft_lstnew.o",
+		"file": "src/libft/ft_lstnew.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_lstsize.c -o obj/src/libft/ft_lstsize.o",
+		"file": "src/libft/ft_lstsize.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_max.c -o obj/src/libft/ft_max.o",
+		"file": "src/libft/ft_max.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_memchr.c -o obj/src/libft/ft_memchr.o",
+		"file": "src/libft/ft_memchr.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_memcmp.c -o obj/src/libft/ft_memcmp.o",
+		"file": "src/libft/ft_memcmp.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_memcpy.c -o obj/src/libft/ft_memcpy.o",
+		"file": "src/libft/ft_memcpy.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_memmove.c -o obj/src/libft/ft_memmove.o",
+		"file": "src/libft/ft_memmove.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_memset.c -o obj/src/libft/ft_memset.o",
+		"file": "src/libft/ft_memset.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_putchar_fd.c -o obj/src/libft/ft_putchar_fd.o",
+		"file": "src/libft/ft_putchar_fd.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_putendl_fd.c -o obj/src/libft/ft_putendl_fd.o",
+		"file": "src/libft/ft_putendl_fd.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_putnbr_fd.c -o obj/src/libft/ft_putnbr_fd.o",
+		"file": "src/libft/ft_putnbr_fd.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_putstr_fd.c -o obj/src/libft/ft_putstr_fd.o",
+		"file": "src/libft/ft_putstr_fd.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_split.c -o obj/src/libft/ft_split.o",
+		"file": "src/libft/ft_split.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_strchr.c -o obj/src/libft/ft_strchr.o",
+		"file": "src/libft/ft_strchr.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_strdup.c -o obj/src/libft/ft_strdup.o",
+		"file": "src/libft/ft_strdup.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_striteri.c -o obj/src/libft/ft_striteri.o",
+		"file": "src/libft/ft_striteri.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_strjoin.c -o obj/src/libft/ft_strjoin.o",
+		"file": "src/libft/ft_strjoin.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_strlcat.c -o obj/src/libft/ft_strlcat.o",
+		"file": "src/libft/ft_strlcat.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_strlcpy.c -o obj/src/libft/ft_strlcpy.o",
+		"file": "src/libft/ft_strlcpy.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_strlen.c -o obj/src/libft/ft_strlen.o",
+		"file": "src/libft/ft_strlen.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_strmapi.c -o obj/src/libft/ft_strmapi.o",
+		"file": "src/libft/ft_strmapi.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_strncmp.c -o obj/src/libft/ft_strncmp.o",
+		"file": "src/libft/ft_strncmp.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_strnstr.c -o obj/src/libft/ft_strnstr.o",
+		"file": "src/libft/ft_strnstr.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_strrchr.c -o obj/src/libft/ft_strrchr.o",
+		"file": "src/libft/ft_strrchr.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_strtrim.c -o obj/src/libft/ft_strtrim.o",
+		"file": "src/libft/ft_strtrim.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_substr.c -o obj/src/libft/ft_substr.o",
+		"file": "src/libft/ft_substr.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_swap.c -o obj/src/libft/ft_swap.o",
+		"file": "src/libft/ft_swap.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_tolower.c -o obj/src/libft/ft_tolower.o",
+		"file": "src/libft/ft_tolower.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/libft/ft_toupper.c -o obj/src/libft/ft_toupper.o",
+		"file": "src/libft/ft_toupper.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/ft_printf/ft_printf.c -o obj/src/ft_printf/ft_printf.o",
+		"file": "src/ft_printf/ft_printf.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/ft_printf/ft_put_char.c -o obj/src/ft_printf/ft_put_char.o",
+		"file": "src/ft_printf/ft_put_char.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/ft_printf/ft_put_hex.c -o obj/src/ft_printf/ft_put_hex.o",
+		"file": "src/ft_printf/ft_put_hex.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/ft_printf/ft_put_int.c -o obj/src/ft_printf/ft_put_int.o",
+		"file": "src/ft_printf/ft_put_int.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/ft_printf/ft_put_str.c -o obj/src/ft_printf/ft_put_str.o",
+		"file": "src/ft_printf/ft_put_str.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/ft_printf/ft_put_uint.c -o obj/src/ft_printf/ft_put_uint.o",
+		"file": "src/ft_printf/ft_put_uint.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/gnl/get_next_line.c -o obj/src/gnl/get_next_line.o",
+		"file": "src/gnl/get_next_line.c"
+	},
+	{
+		"directory": "/home/daniel/projects/libft",
+		"command": "cc -Wall -Wextra -Werror -O2 -I./inc -MMD -MP -c src/gnl/get_next_line_utils.c -o obj/src/gnl/get_next_line_utils.o",
+		"file": "src/gnl/get_next_line_utils.c"
+	}
+]

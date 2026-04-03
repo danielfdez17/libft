@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-bool	ft_isspace(const char *s, size_t i);
-
 // Todo: test
 long	ft_atol(const char *nptr)
 {
@@ -24,7 +22,7 @@ long	ft_atol(const char *nptr)
 	result = 0;
 	negative = 0;
 	i = 0;
-	while (ft_isspace(nptr, i))
+	while (ft_isspace(nptr[i]))
 		++i;
 	if (nptr[i] == '-' || nptr[i] == '+')
 		if (nptr[i++] == '-')
@@ -44,9 +42,9 @@ long	ft_atol(const char *nptr)
 // 	int i = 1;
 // 	while (--ac)
 // 	{
-// 		printf("ft_atoi: %d\n", ft_atoi(av[i]));
-// 		printf("atoi: %d\n---\n", atoi(av[i]));
-// 		assert(ft_atoi(av[i]) == atoi(av[i]));
+// 		printf("ft_atol: %ld\n", ft_atol(av[i]));
+// 		printf("atol: %ld\n---\n", atol(av[i]));
+// 		assert(ft_atol(av[i]) == atol(av[i]));
 // 		++i;
 // 	}
 // 	return (0);
