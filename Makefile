@@ -156,7 +156,7 @@ re:
 
 # ? 📏 Checks the code with Norminette
 norminette:
-	$(call RUN_AND_LOG,clear; norminette $(INCLUDES_DIR) $(LIBFT_SOURCES_DIR) | grep Error || echo "$(LIBFT) $(GREEN)Norminette passed!$(RESET)",$(LIBFT) $(BLUE)Norminette checked!$(RESET))
+	$(call RUN_AND_LOG, norminette $(INCLUDES_DIR) $(LIBFT_SOURCES_DIR) | grep Error || echo "$(LIBFT) $(GREEN)Norminette passed!$(RESET)",$(LIBFT) $(BLUE)Norminette checked!$(RESET))
 
 # ? ❓ Displays this help message
 help:
